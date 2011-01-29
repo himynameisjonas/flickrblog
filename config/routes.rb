@@ -1,4 +1,6 @@
 Flickrblog::Application.routes.draw do
+  get "blog/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
