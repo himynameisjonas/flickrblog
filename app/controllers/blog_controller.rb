@@ -7,4 +7,9 @@ class BlogController < ApplicationController
     @photo = Photo.find(params[:id])
   end
   
+  def latest
+    @photo = Photo.all.last
+    render :action => :show
+  end
+  
 end

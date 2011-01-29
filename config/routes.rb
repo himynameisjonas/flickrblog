@@ -1,6 +1,6 @@
 Flickrblog::Application.routes.draw do
-  root :to => "blog#index"
-  
+  root :to => "blog#latest"
+  match 'archive' => "blog#index", :as => :archive
   match 'show/:id' => 'blog#show', :as => :show
 
   # get "blog/index"
