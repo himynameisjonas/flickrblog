@@ -38,4 +38,8 @@ class Photo
   def to_param
     self.id
   end
+  
+  def model_name
+    "Photos"
+  end
 end
