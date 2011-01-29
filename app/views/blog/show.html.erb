@@ -1,5 +1,5 @@
-<%= link_to("Föregående", show_path(@photo.previous), :class => "previous") if @photo.previous  %>
+<%= link_to(image_tag(@photo.previous.thumbnail_url), show_path(@photo.previous), :class => "previous") if @photo.previous  %>
 
 <%= image_tag @photo.large_url %>
 
-<%= link_to("Nästa", show_path(@photo.next), :class => "next") if @photo.next %>
+<%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %>

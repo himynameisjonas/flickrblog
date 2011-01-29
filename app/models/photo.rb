@@ -39,7 +39,4 @@ class Photo
     self.id
   end
   
-  def model_name
-    "Photos"
-  end
 end
