@@ -1,6 +1,9 @@
 Flickrblog::Application.routes.draw do
-  get "blog/index"
   root :to => "blog#index"
+  
+  match 'show/:id' => 'blog#show', :as => :show
+
+  # get "blog/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

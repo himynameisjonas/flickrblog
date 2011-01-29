@@ -1,5 +1,5 @@
 class Photo
-  attr_accessor :id, :url_thumbnail
+  attr_accessor :id, :thumbnail_url, :large_url
   require 'open-uri'
   
   def initialize(attributes = {})
@@ -13,8 +13,17 @@ class Photo
     doc.css("photo").map do |photo|
       self.new(
         :id => photo.attr("id"),
-        :url_thumbnail => photo.attr("url_sq")
+        :thumbnail_url => photo.attr("url_sq"),
+        :large_url => photo.attr("url_l")
       )
     end
+  end
+  
+  def self.find(id)
+    self.all.select{|photo| photo.id == id}.first
+  end
+  
+  def to_param
+    self.id
   end
 end
