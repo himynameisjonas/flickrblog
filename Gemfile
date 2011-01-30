@@ -32,3 +32,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 
 gem 'nokogiri'
+
+gem 'dalli'
