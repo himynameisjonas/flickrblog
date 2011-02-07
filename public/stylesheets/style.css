@@ -90,7 +90,7 @@ body {
     background: #FDFDFD;
 }
 
-article {
+article, footer {
     padding: 20px;
     text-align: center;
 }
@@ -122,11 +122,11 @@ article footer {
 
 
 .rotate0{
-    -moz-transform:    rotate(-1.5deg);
-    -o-transform:      rotate(-1.5deg);
-    -webkit-transform: rotate(-1.5deg);
-    -ms-transform:     rotate(-1.5deg);
-    transform:         rotate(-1.5deg);
+    -moz-transform:    rotate(-1deg);
+    -o-transform:      rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -ms-transform:     rotate(-1deg);
+    transform:         rotate(-1deg);
 }
 .rotate1{
     -moz-transform:    rotate(0.5deg);

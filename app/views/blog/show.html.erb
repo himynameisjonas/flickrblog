@@ -6,8 +6,10 @@
     </footer>
 </article>
 
-<p>
-<%= link_to(image_tag(@photo.previous.thumbnail_url), show_path(@photo.previous), :class => "previous") if @photo.previous  %>
-<%= link_to("archive", archive_path) %>
-<%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %>
-</p>
+<% content_for :footer do -%>
+    <p>
+    <%= link_to("archive", archive_path) %><br />
+    <%= link_to(image_tag(@photo.previous.thumbnail_url), show_path(@photo.previous), :class => "previous") if @photo.previous  %>
+    <%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %>
+    </p>
+<% end -%>
