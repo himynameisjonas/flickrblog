@@ -1,12 +1,7 @@
-<h1>Blog#index</h1>
-<p>Find me in app/views/blog/index.html.erb</p>
-
-<ul>
+<section id="archive">
 <% @photos.each do |photo| %>
-    <li>
-        <%= link_to(image_tag(photo.thumbnail_url), show_path(photo)) %>
-    </li>
+    <article>
+        <%= link_to(image_tag(photo.thumbnail_url, :width => "75px", :height => "75px", :class => "rotate#{rand(4)}"), show_path(photo)) %>
+    </article>
 <% end %>
-</ul>
-
-<p>Totalt <%= @photos.size %> bilder.</p>
+</section>
