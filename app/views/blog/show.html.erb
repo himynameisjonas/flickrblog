@@ -1,8 +1,13 @@
+<article>
+    <%= image_tag @photo.large_url, :class => "rotate#{rand(4)}" %>
+    <footer>
+    <h1><%= @photo.title %></h1>
+    <time><%= @photo.taken_at.to_date.to_formatted_s(:long) %></time>
+    </footer>
+</article>
 
+<p>
 <%= link_to(image_tag(@photo.previous.thumbnail_url), show_path(@photo.previous), :class => "previous") if @photo.previous  %>
-
-<%= image_tag @photo.large_url %>
-
-<%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %>
-<br />
 <%= link_to("archive", archive_path) %>
+<%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %>
+</p>
