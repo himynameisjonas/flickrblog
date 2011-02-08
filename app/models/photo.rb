@@ -1,7 +1,6 @@
 class Photo
   attr_accessor :id, :thumbnail_url, :large_url, :medium_url, :index, :orientation, :title, :taken_at
   require 'open-uri'
-  @@all_photos = nil
   
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -10,8 +9,7 @@ class Photo
   end
   
   def self.all
-    return @@all_photos if @@all_photos
-    @@all_photos = Rails.cache.fetch("all_photos", :expires_in => 5.minutes) do
+    Rails.cache.fetch("all_photos", :expires_in => 5.minutes) do
       doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=c794c3f00be2130085e3cdef2f06aeb6&photoset_id=72157623298803241&extras=url_sq%2Curl_m%2Curl_l%2Curl_o,date_taken"))
       photos = Array.new
       doc.css("photo").to_a.each_index do |index|
