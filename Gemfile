@@ -36,4 +36,4 @@ gem 'nokogiri'
 gem 'dalli'
 
 
-gem "jquery-rails"
+# gem "jquery-rails"
