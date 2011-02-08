@@ -1,5 +1,7 @@
+<% content_for :title, @photo.title -%>
+
 <article>
-    <%= image_tag @photo.large_url, :class => "rotate#{rand(4)}" %>
+    <%= image_tag @photo.large_url, :id => "photo", :class => "rotate#{rand(4)}" %>
     <footer>
     <h1><%= @photo.title %></h1>
     <time><%= @photo.taken_at.to_date.to_formatted_s(:long) %></time>
@@ -7,9 +9,12 @@
 </article>
 
 <% content_for :footer do -%>
+    <div id="nav" class="clearfix">
+    <%= link_to(image_tag("/images/previous.png"), show_path(@photo.previous), :id => "prev", :style => "background: url(#{@photo.previous.thumbnail_url});", :class => "nav-link previous", :title => "previous") if @photo.previous  %>
+    <%= link_to(image_tag("/images/next.png"), show_path(@photo.next), :id => "next", :style => "background: url(#{@photo.next.thumbnail_url});", :class => "nav-link next", :title => "ntext") if @photo.next  %>
+
+    </div>
     <p>
-    <article id="prev"><%= link_to(image_tag(@photo.previous.thumbnail_url), show_path(@photo.previous), :class => "previous") if @photo.previous  %></article>
-    <article id="next"><%= link_to(image_tag(@photo.next.thumbnail_url), show_path(@photo.next), :class => "next") if @photo.next %></article><br />
     <%= link_to("archive", archive_path) %>
     </p>
 <% end -%>

@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Flickrblog</title>
+  <title>Flickrblog <%= " - " << yield(:title) if yield(:title).present?%></title>
   <meta name="author" content="Jonas Forsberg">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <link  href="//fonts.googleapis.com/css?family=Droid+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+
   <%= stylesheet_link_tag :all %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
@@ -21,7 +22,7 @@
 
   <div id="container">
     <header>
-
+        
     </header>
     
     <div id="main">
@@ -30,6 +31,7 @@
     
     <footer>
         <%= yield(:footer) %>
+        <p id="powered">powered by: flickrblog, flickr</p>
     </footer>
   </div>
 </body>
