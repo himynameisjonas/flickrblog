@@ -1,7 +1,7 @@
 <section id="archive">
 <% @photos.each do |photo| %>
     <article>
-        <%= link_to(image_tag(photo.thumbnail_url, :width => "75px", :height => "75px", :class => "rotate#{rand(4)}"), show_path(photo)) %>
+        <%= link_to(image_tag(photo.thumbnail_url, :width => "75px", :height => "75px", :title => photo.title, :class => "rotate#{rand(4)}"), show_path(photo)) %>
     </article>
 <% end %>
 </section>

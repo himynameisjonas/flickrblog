@@ -3,6 +3,7 @@
 $(function(){
   
   $('#archive').imagesLoaded( function(){
+    $('#archive article img').tipsy({fade: true, gravity: $.fn.tipsy.autoNS});
     $(this).isotope({
       itemSelector : 'article'
     });

@@ -100,17 +100,6 @@ article, footer {
     padding: 20px;
     text-align: center;
 }
-article img:hover {
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-    
-    -moz-box-shadow: 0px 10px 34px #A5A5A5; /* FF3.5+ */
-    -webkit-box-shadow: 0px 10px 34px #A5A5A5; /* Saf3.0+, Chrome */
-    box-shadow: 0px 10px 34px #A5A5A5; /* Opera 10.5, IE9 */
-}
 
 article img {
     -webkit-transition: all 1s ease-in-out;
@@ -125,6 +114,20 @@ article img {
     -webkit-box-shadow: 0px 10px 34px #CDCDCD; /* Saf3.0+, Chrome */
     box-shadow: 0px 10px 34px #CDCDCD; /* Opera 10.5, IE9 */
 }
+
+article img:hover,
+a.nav-link:hover {
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    
+    -moz-box-shadow: 0px 10px 34px #8A8A8A; /* FF3.5+ */
+    -webkit-box-shadow: 0px 10px 34px #8A8A8A; /* Saf3.0+, Chrome */
+    box-shadow: 0px 10px 34px #8A8A8A; /* Opera 10.5, IE9 */
+}
+
 img#photo {
     max-height: 700px;
 }
@@ -133,8 +136,24 @@ article footer {
     margin-top: 20px;
 }
 
+#archive {
+    margin-top: 20px;
+}
 #archive article {
     float: left;
+}
+
+h1 {
+    text-shadow: 0px 1px 1px #A7A7A7;
+    font-size: 18px;
+}
+
+a, a:visited{
+    color: #A5397C;
+}
+a:hover {
+    color: #770E54;
+    text-decoration: none;
 }
 
 #container>footer {
@@ -144,7 +163,9 @@ article footer {
 }
 
 a.nav-link {
-    
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
     border: 20px solid #ffffff;
     -moz-box-shadow: 0px 10px 34px #CDCDCD; /* FF3.5+ */
     -webkit-box-shadow: 0px 10px 34px #CDCDCD; /* Saf3.0+, Chrome */
@@ -163,6 +184,7 @@ a.nav-link img {
 a.nav-link:hover img{
     display:inline;
 }
+
 #next {
     float: right;
 }
@@ -176,6 +198,7 @@ a.nav-link:hover img{
     color: #DFDFDF;
 }
 
+/* Random rotate classes */
 .rotate0{
     -moz-transform:    rotate(-1deg);
     -o-transform:      rotate(-1deg);
@@ -271,3 +294,12 @@ a.nav-link:hover img{
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
 /* close commented backslash hack */
+
+
+.tipsy { padding: 5px; font-size: 10px; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat;  background-image: url(../images/tipsy.gif); }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+.tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
