@@ -95,6 +95,14 @@ body {
     letter-spacing: 0.063em;
     line-height: 1.2;
 }
+#main {
+    min-height: 900px;
+}
+
+#main>article {
+    position: relative;
+    overflow: hidden;
+}
 
 article, footer {
     padding: 20px;
@@ -160,6 +168,7 @@ a:hover {
     width: 250px;
     margin: 0 auto;
     font-size: 12px;
+    position: relative;
 }
 
 a.nav-link {
@@ -196,6 +205,9 @@ a.nav-link:hover img{
     margin-top: 20px;
     font-size: 10px;
     color: #DFDFDF;
+}
+#powered a {
+    color: #B7B7B7;
 }
 
 /* Random rotate classes */
