@@ -12,7 +12,13 @@ $(function(){
   $('a.nav-link').live('click', function() {
     history.pushState({ path: this.path }, '', this.href)
     var direction = $(this).attr('id')
-    $.get(this.href, function(data) {
+    slideTo(this.href, direction)
+    return false
+  })
+});
+
+function slideTo (location, direction) {
+    $.get(location, function(data) {
       var old_photo = $("#main>article")
       var new_photo = $(data).find("#main>article")
       var window_width = $(window).width()
@@ -41,10 +47,4 @@ $(function(){
       
       $("#nav").replaceWith(new_nav)
     })
-    return false
-  })
-  
-  $("#disqus-link").click(function(){
-      $("#disqus_thread").slideToggle("slow")
-  })
-});
+}
