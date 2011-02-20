@@ -25,6 +25,7 @@ class AdminController < ApplicationController
     params[:setting].each do |key,value|
       Setting.send("#{key}=", value)
     end
+    Photo.clear_cache
     redirect_to admin_path, :notice => "Settings saved"
   end
 end

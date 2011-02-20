@@ -9,7 +9,7 @@ class Photo
   end
   
   def self.all
-    Rails.cache.fetch("all_photos", :expires_in => 5.minutes) do
+    Rails.cache.fetch(self.cache_key, :expires_in => 5.minutes) do
       doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=#{Setting.flickr_api_key}&photoset_id=#{Setting.flickr_photoset_id}&extras=url_sq%2Curl_m%2Curl_l%2Curl_o,date_taken"))
       photos = Array.new
       doc.css("photo").to_a.each_index do |index|
@@ -49,4 +49,11 @@ class Photo
     self.id
   end
   
+  def self.clear_cache
+    Rails.cache.delete self.cache_key
+  end
+  
+  def self.cache_key
+    "all_photos"
+  end
 end
