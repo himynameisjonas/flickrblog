@@ -1,6 +1,12 @@
 Flickrblog::Application.routes.draw do
   root :to => "blog#latest"
   match 'archive' => "blog#index", :as => :archive
+  
+  match 'admin' => "admin#index", :as => :admin
+  match 'admin/update' => "admin#update", :as => :update_settings
+  match 'login' => "admin#login", :as => :login
+  match 'logout' => "admin#logout", :as => :logout
+  
   match ':id' => 'blog#show', :as => :show
 
   # get "blog/index"

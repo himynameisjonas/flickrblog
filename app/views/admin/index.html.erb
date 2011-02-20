@@ -1,0 +1,33 @@
+<article>
+    <h1>Flickrblog – Admin</h1>
+    <p id="notice"><%= notice %></p>
+    <% form_for :setting, @settings, :url => update_settings_path do |f| -%>
+        <fieldset id="flickr_settings" class="">
+            <legend>Flickr settings</legend>
+            <div>
+              <%= f.label :flickr_api_key, "Flickr Api Key" %>
+              <%= f.text_field :flickr_api_key %>
+            </div>
+            <div>
+              <%= f.label :flickr_photoset_id, "Flickr photoset id" %>
+              <%= f.text_field :flickr_photoset_id %>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Admin settings</legend>
+            <div>
+                <%= f.label :username, "Admin username" %>
+                <%= f.text_field :username %>
+            </div>
+            <div>
+                <%= f.label :password, "Admin password" %>
+                <%= f.text_field :password %>
+            </div>
+        </fieldset>
+        <div>
+            <%= f.submit "Save", :disable_with => 'Saving...' %>
+        </div>
+    <% end -%>
+    
+    <footer><%= link_to "logout", logout_path %></footer>
+</article>
