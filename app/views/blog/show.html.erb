@@ -1,7 +1,7 @@
 <% content_for :title, @photo.title -%>
 
 <article>
-    <%= image_tag @photo.large_url, :id => "photo", :class => "rotate#{rand(4)}" %>
+    <%= image_tag @photo.url, :id => "photo", :class => "rotate#{rand(4)}" %>
     <footer>
     <h1><%= @photo.title %></h1>
     <time><%= @photo.taken_at.to_date.to_formatted_s(:long) %></time>

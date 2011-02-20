@@ -29,6 +29,10 @@ class Photo
     end
   end
   
+  def url
+    large_url || medium_url
+  end
+  
   def self.find(id)
     self.all.select{|photo| photo.id == id}.first
   end
