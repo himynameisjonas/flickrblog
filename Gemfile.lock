@@ -58,6 +58,8 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails-settings-cached (0.1.2)
+      rails (>= 3.0.0)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -80,4 +82,5 @@ DEPENDENCIES
   jquery-rails
   nokogiri
   rails (= 3.0.3)
+  rails-settings-cached
   sqlite3-ruby
