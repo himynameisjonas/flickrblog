@@ -1,9 +1,12 @@
 Flickrblog::Application.routes.draw do
+  match '/auth/:provider/callback' => 'admin#omniauth'
+  
   root :to => "blog#latest"
   match 'archive' => "blog#index", :as => :archive
   
   match 'admin' => "admin#index", :as => :admin
   match 'admin/update' => "admin#update", :as => :update_settings
+  match 'admin/photosets' => "admin#photosets", :as => :photosets
   match 'login' => "admin#login", :as => :login
   match 'logout' => "admin#logout", :as => :logout
   

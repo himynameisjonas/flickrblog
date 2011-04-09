@@ -1,0 +1,10 @@
+<article>
+    <h1>Flickrblog – Admin:Photosets</h1>
+    <p id="notice"><%= notice %></p>
+
+    <p>choose a photoset:</p>
+        <% for photoset in @photosets %>
+            <%= link_to photoset[:name], update_settings_path(:setting =>{"flickr_photoset_id" => photoset[:id], "flickr_photoset_name" => photoset[:name]}), :method => :post %><br>
+        <% end %>
+    <footer><%= link_to "logout", logout_path %></footer>
+</article>

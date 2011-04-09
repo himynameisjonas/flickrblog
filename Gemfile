@@ -39,3 +39,5 @@ gem 'dalli'
 gem "jquery-rails"
 
 gem "rails-settings-cached", :require => "rails-settings"
+
+gem "omniauth"
