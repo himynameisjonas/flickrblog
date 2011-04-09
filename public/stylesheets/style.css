@@ -97,6 +97,8 @@ body {
 }
 #main {
     min-height: 900px;
+    width: 100%;
+    overflow:hidden;
 }
 
 #main>article {
@@ -121,6 +123,8 @@ article img {
     -moz-box-shadow: 0px 10px 34px #CDCDCD; /* FF3.5+ */
     -webkit-box-shadow: 0px 10px 34px #CDCDCD; /* Saf3.0+, Chrome */
     box-shadow: 0px 10px 34px #CDCDCD; /* Opera 10.5, IE9 */
+    
+    background: #c1c1c1;
 }
 
 article img:hover,
