@@ -1,0 +1,6 @@
+development:
+  flickr_api_key: "abc"
+  flickr_api_secret: "123"
+production:
+  flickr_api_key: "def"
+  flickr_api_secret: "456"

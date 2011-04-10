@@ -10,7 +10,7 @@ class Photo
   
   def self.all
     Rails.cache.fetch(self.cache_key, :expires_in => 5.minutes) do
-      doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=#{Setting.flickr_api_key}&photoset_id=#{Setting.flickr_photoset_id}&extras=url_sq%2Curl_m%2Curl_l%2Curl_o,date_taken"))
+      doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=#{CONFIG['flickr_api_key']}&photoset_id=#{Setting.flickr_photoset_id}&extras=url_sq%2Curl_m%2Curl_l%2Curl_o,date_taken"))
       photos = Array.new
       doc.css("photo").to_a.each_index do |index|
         photo = doc.css("photo")[index]

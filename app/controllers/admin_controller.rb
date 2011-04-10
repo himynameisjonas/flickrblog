@@ -18,7 +18,7 @@ class AdminController < ApplicationController
   
   def photosets
     @photosets = Rails.cache.fetch("photosets", :expires_in => 5.minutes) do
-      doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=#{Setting.flickr_api_key}&user_id=#{Setting.flickr_user_id}"))
+      doc = Nokogiri::XML(open("http://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=#{CONFIG['flickr_api_key']}&user_id=#{Setting.flickr_user_id}"))
       doc.css("photoset").map do |photoset|
         {
           :id => photoset.attr(:id),
