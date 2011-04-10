@@ -12,6 +12,17 @@ $(function(){
         slideTo(this.href, direction);
         return false;
     });
+    $(document).keyup(function(event) {
+        var direction = null;
+        if (event.keyCode == 37) {
+            direction = 'prev';
+        } else if (event.keyCode == 39) {
+            direction = 'next';
+        }
+        if (direction != null) {
+            $("a#"+direction).click();
+        }
+    });
 });
 
 function slideTo (location, direction) {
