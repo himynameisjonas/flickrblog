@@ -101,7 +101,7 @@ body {
     overflow:hidden;
 }
 
-#main>article {
+#photo-wrapper>article {
     position: relative;
     overflow: hidden;
 }
@@ -168,11 +168,12 @@ a:hover {
     text-decoration: none;
 }
 
-#container>footer {
+nav {
     width: 250px;
     margin: 0 auto;
     font-size: 12px;
     position: relative;
+    text-align: center;
 }
 
 a.nav-link {

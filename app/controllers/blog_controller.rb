@@ -6,6 +6,7 @@ class BlogController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
     render(:file => "public/404.html", :status => 404, :layout => false) unless @photo
+    render :layout => false if request.xhr?
   end
   
   def latest
