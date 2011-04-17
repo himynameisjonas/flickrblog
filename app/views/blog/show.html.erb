@@ -2,7 +2,7 @@
 <div id="content-wrapper">
     <div id="photo-wrapper">
         <article>
-            <%= image_tag @photo.url, :id => "photo", :class => "rotate#{rand(4)}" %>
+            <%= image_tag @photo.url, :id => "photo", :class => "rotate#{rand(4)}", :'data-location-path' => "/#{@photo.id}" %>
             <footer>
                 <h1><%= @photo.title %></h1>
                 <time><%= @photo.taken_at.to_date.to_formatted_s(:long) %></time>
@@ -11,8 +11,8 @@
     </div>
     <nav id="photo-navigation">
         <div class="clearfix">
-            <%= link_to(image_tag("/images/previous.png"), show_path(@photo.previous), :id => "prev", :style => "background: url(#{@photo.previous.thumbnail_url});", :class => "nav-link previous", :title => "previous") if @photo.previous  %>
-            <%= link_to(image_tag("/images/next.png"), show_path(@photo.next), :id => "next", :style => "background: url(#{@photo.next.thumbnail_url});", :class => "nav-link next", :title => "ntext") if @photo.next  %>
+            <%= link_to(image_tag("/images/previous.png"), show_path(@photo.previous), :id => "prev", :style => "background: url(#{@photo.previous.thumbnail_url});", :'data-image-id' => @photo.id, :class => "nav-link previous", :title => "previous") if @photo.previous  %>
+            <%= link_to(image_tag("/images/next.png"), show_path(@photo.next), :id => "next", :style => "background: url(#{@photo.next.thumbnail_url});", :'data-image-id' => @photo.id, :class => "nav-link next", :title => "ntext") if @photo.next  %>
         </div>
         <p>
             <%= link_to("archive", archive_path) %>

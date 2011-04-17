@@ -7,7 +7,8 @@ $(function(){
     });
 
     $('a.nav-link').live('click', function() {
-        history.pushState({ path: this.path }, '', this.href);
+        // history.pushState({ path: this.path }, '', this.href);
+        history.pushState({id: $(this).data('image-id')}, "hejhej",this.href);
         var direction = $(this).attr('id');
         slideTo(this.href, direction);
         return false;
@@ -23,6 +24,11 @@ $(function(){
             $("a#"+direction).click();
         }
     });
+    $(window).bind('popstate', function() {
+        if ($("img#photo").data("location-path") !== location.pathname) {
+            slideTo(location.pathname);
+        };
+    })
 });
 
 function slideTo (location, direction) {
@@ -43,7 +49,7 @@ function slideTo (location, direction) {
                 old_photo.remove();
                 new_photo.animate({left: 0}, 'slow');
             });
-        } else {
+        } else if(direction == "next") {
             new_photo.css({
                 left: window_width
             });
@@ -51,6 +57,11 @@ function slideTo (location, direction) {
                 photo_wrapper.prepend(new_photo);
                 old_photo.remove();
                 new_photo.animate({left: 0}, 'slow');
+            });
+        } else {
+            old_photo.slideUp("slow", function(){
+                photo_wrapper.prepend(new_photo.css({display:"none"}));
+                new_photo.slideDown("slow");
             });
         }
         $("nav").replaceWith(new_nav);
