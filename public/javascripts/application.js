@@ -7,10 +7,8 @@ $(function(){
     });
 
     $('a.nav-link').live('click', function() {
-        // history.pushState({ path: this.path }, '', this.href);
-        history.pushState({id: $(this).data('image-id')}, "hejhej",this.href);
-        var direction = $(this).attr('id');
-        slideTo(this.href, direction);
+        history.pushState(null, $("#photo-wrapper h1").text(), this.href);
+        slideTo(this.href);
         return false;
     });
     $(document).keyup(function(event) {
@@ -24,14 +22,16 @@ $(function(){
             $("a#"+direction).click();
         }
     });
+    var popped = ('state' in window.history), initialURL = location.href
     $(window).bind('popstate', function() {
-        if ($("img#photo").data("location-path") !== location.pathname) {
-            slideTo(location.pathname);
-        };
+        var initialPop = !popped && location.href == initialURL
+        popped = true
+        if ( initialPop ) return
+        slideTo(location.pathname);
     })
 });
 
-function slideTo (location, direction) {
+function slideTo (location) {
     $.get(location, function(data) {
         var photo_wrapper = $("#photo-wrapper");
         var old_photo = $("article",photo_wrapper);
@@ -40,7 +40,7 @@ function slideTo (location, direction) {
         var window_width = $(window).width();
         var left_offset = 0 - window_width;
 
-        if (direction == "prev") {
+        if (old_photo.find("img").data('image-position') > new_photo.find("img").data('image-position')) {
             new_photo.css({
                 left: left_offset
             });
@@ -49,7 +49,7 @@ function slideTo (location, direction) {
                 old_photo.remove();
                 new_photo.animate({left: 0}, 'slow');
             });
-        } else if(direction == "next") {
+        } else {
             new_photo.css({
                 left: window_width
             });
@@ -58,12 +58,8 @@ function slideTo (location, direction) {
                 old_photo.remove();
                 new_photo.animate({left: 0}, 'slow');
             });
-        } else {
-            old_photo.slideUp("slow", function(){
-                photo_wrapper.prepend(new_photo.css({display:"none"}));
-                new_photo.slideDown("slow");
-            });
         }
         $("nav").replaceWith(new_nav);
+        document.title = document.title.split("-")[0] + "- " +new_photo.find("h1").text();
     });
 }
